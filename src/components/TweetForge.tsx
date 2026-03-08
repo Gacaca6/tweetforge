@@ -64,50 +64,28 @@ export default function TweetForge() {
     const toneLabel = TONES.find(t => t.id === tone)?.label;
     const formatLabel = FORMATS.find(f => f.id === format)?.label;
 
-    const systemPrompt = `You are a world-class Twitter/X growth strategist who has studied viral tweet patterns from top creators like Justin Welsh, Dickie Bush, Nicolas Cole, Dan Koe, and Naval Ravikant.
-
-You know the X algorithm (open-sourced): Retweet=20x, Reply=13.5x, ProfileClick=12x, Bookmark=10x, Like=1x.
-
-RULES YOU ALWAYS FOLLOW:
-1. FIRST LINE IS EVERYTHING — stops the scroll in under 3 seconds.
-2. Use specific numbers (12,847 not "thousands") — 300% more engagement.
-3. Emotions that spread: awe, surprise, anger, humor, inspiration.
-4. Short sentences. Heavy white space. Never a wall of text.
-5. No external links in tweet (30–50% reach penalty). Links go in replies.
-6. Each tweet delivers ONE clear memorable insight. Not two. One.
-7. End with CTA that invites replies or retweets, not just likes.
-
-RETURN FORMAT: ONLY a valid JSON array. No markdown, no backticks, no explanation.
-Each object: { "tweet": "...", "tip": "...", "engagementFocus": "..." }
-- tweet: The actual tweet text (use \\n for line breaks)
-- tip: One specific insight about why this tweet works  
-- engagementFocus: One of "Retweets", "Replies", "Bookmarks", "Profile Clicks"`;
-
-    const userPrompt = `Generate 3 unique tweets using the "${fw?.name}" framework.
-
-DETAILS:
-- Niche: ${niche}
-- Topic/Idea: ${topic}
-- Tone: ${toneLabel}
-- Format: ${formatLabel}
-- Framework Formula: ${fw?.formula}
-- Why this framework works: ${fw?.why}
-- Primary engagement target: ${fw?.engagementTarget}
-
-${format === "full_thread" ? `For full thread format, the "tweet" field should contain ALL 5-7 tweets separated by "|||" markers. Make tweet 1 the hook, tweets 2-6 the value, last tweet the CTA.` : ""}
-
-Generate 3 distinct variations. Return ONLY a JSON array: [{"tweet":"...","tip":"...","engagementFocus":"..."},...]`;
-
     try {
-      const response = await fetch("https://api.anthropic.com/v1/messages", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ model: "claude-sonnet-4-20250514", max_tokens: 1000, system: systemPrompt, messages: [{ role: "user", content: userPrompt }] }) });
-      const data = await response.json();
-      const raw = data.content?.map((c: any) => c.text || "").join("") || "";
-      const clean = raw.replace(/```json|```/g, "").trim();
-      const parsed = JSON.parse(clean);
-      setTweets(parsed); setStep("result");
+      const { data, error: fnError } = await supabase.functions.invoke('generate-tweets', {
+        body: {
+          framework: { name: fw?.name, formula: fw?.formula, why: fw?.why, engagementTarget: fw?.engagementTarget },
+          niche,
+          topic,
+          tone: toneLabel,
+          format: formatLabel,
+        },
+      });
+
+      if (fnError) throw new Error(fnError.message || "Generation failed");
+      if (data?.error) throw new Error(data.error);
+
+      setTweets(data.tweets);
+      setStep("result");
       setTimeout(() => resultRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
-    } catch {
-      setError("Generation failed. Please try again."); setStep("configure");
+    } catch (e: any) {
+      const msg = e?.message || "Generation failed. Please try again.";
+      setError(msg);
+      toast.error(msg);
+      setStep("configure");
     } finally {
       setLoading(false);
     }
