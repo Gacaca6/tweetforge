@@ -595,7 +595,7 @@ export default function TweetForge() {
         )}
       </main>
 
-      <footer style={{ position:"relative",zIndex:1,borderTop:"1px solid #1A1C20",padding:"14px 28px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(8,9,10,0.8)" }}>
+      <footer className="tf-footer" style={{ position:"relative",zIndex:1,borderTop:"1px solid #1A1C20",padding:"14px 28px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(8,9,10,0.8)" }}>
         <span style={{ fontFamily:"'DM Mono',monospace",fontSize:10,color:"#1E2025" }}>TWEETFORGE — BUILT ON X OPEN-SOURCE ALGORITHM DATA + VERIFIED CREATOR RESEARCH</span>
         <span style={{ fontFamily:"'DM Mono',monospace",fontSize:10,color:"#1E2025" }}>2026</span>
       </footer>
