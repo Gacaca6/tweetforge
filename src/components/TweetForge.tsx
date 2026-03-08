@@ -134,32 +134,57 @@ export default function TweetForge() {
         .info-card{border:1px solid #1A1C20;background:#0D0E10;padding:20px}
         .grid-bg{position:fixed;inset:0;background-image:linear-gradient(#1A1C2010 1px,transparent 1px),linear-gradient(90deg,#1A1C2010 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
         .glow{position:fixed;top:-200px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(245,166,35,0.05) 0%,transparent 70%);pointer-events:none;z-index:0}
+        @media(max-width:768px){
+          .tf-header{flex-direction:column;height:auto!important;padding:10px 14px!important;gap:8px}
+          .tf-header-left{justify-content:center}
+          .tf-header-tabs{justify-content:center;width:100%}
+          .tf-header-right{display:none}
+          .tf-main{padding:20px 14px 60px!important}
+          .tf-alg-bar{flex-direction:row;flex-wrap:wrap}
+          .tf-alg-bar .stat-box{min-width:45%;flex:1 1 45%}
+          .tf-config-grid{grid-template-columns:1fr!important}
+          .tf-fw-grid{grid-template-columns:1fr!important}
+          .tf-fmt-row{flex-direction:column!important}
+          .tf-result-header{flex-direction:column!important;gap:14px!important;align-items:flex-start!important}
+          .tf-result-btns{width:100%}
+          .tf-result-btns .btn-main,.tf-result-btns .btn-ghost{flex:1;justify-content:center}
+          .tf-after-grid{grid-template-columns:1fr!important}
+          .tf-playbook-grid{grid-template-columns:1fr!important}
+          .tf-schedule-grid{grid-template-columns:repeat(4,1fr)!important}
+          .tf-time-grid{grid-template-columns:1fr!important}
+          .tf-earn-grid{grid-template-columns:1fr!important}
+          .tf-req-grid{grid-template-columns:1fr!important}
+          .tf-rev-row{grid-template-columns:36px 1fr!important;grid-template-rows:auto auto}
+          .tf-rev-meta{display:flex;gap:20px;grid-column:1/-1;padding-top:6px}
+          .tf-sidebar{position:static!important}
+          .tf-footer{flex-direction:column;gap:6px;text-align:center;padding:14px!important}
+        }
       `}</style>
 
       <div className="grid-bg" />
       <div className="glow" />
 
       {/* HEADER */}
-      <header style={{ position:"relative",zIndex:10,borderBottom:"1px solid #1A1C20",background:"rgba(8,9,10,0.85)",backdropFilter:"blur(12px)",padding:"0 28px",display:"flex",alignItems:"center",justifyContent:"space-between",height:56 }}>
-        <div style={{ display:"flex",alignItems:"center",gap:12 }}>
+      <header className="tf-header" style={{ position:"relative",zIndex:10,borderBottom:"1px solid #1A1C20",background:"rgba(8,9,10,0.85)",backdropFilter:"blur(12px)",padding:"0 28px",display:"flex",alignItems:"center",justifyContent:"space-between",height:56 }}>
+        <div className="tf-header-left" style={{ display:"flex",alignItems:"center",gap:12 }}>
           <div style={{ width:30,height:30,background:"#F5A623",display:"flex",alignItems:"center",justifyContent:"center",fontSize:15,fontWeight:900,color:"#08090A",fontFamily:"serif" }}>𝕏</div>
           <span style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:22,letterSpacing:"0.08em" }}>TWEETFORGE</span>
           <span style={{ background:"#111",color:"#444",padding:"2px 8px",fontFamily:"'DM Mono',monospace",fontSize:10,letterSpacing:"0.1em" }}>BETA</span>
         </div>
-        <div style={{ display:"flex",gap:0 }}>
+        <div className="tf-header-tabs" style={{ display:"flex",gap:0 }}>
           {["generator","playbook","monetize"].map(t => (
             <button key={t} className={`tab-btn ${activeTab===t?"active":""}`} onClick={() => setActiveTab(t)}>
               {t.charAt(0).toUpperCase()+t.slice(1)}
             </button>
           ))}
         </div>
-        <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+        <div className="tf-header-right" style={{ display:"flex",alignItems:"center",gap:8 }}>
           <div style={{ width:6,height:6,borderRadius:"50%",background:"#2ECC71",animation:"pulse 2s ease infinite" }} />
           <span style={{ fontFamily:"'DM Mono',monospace",fontSize:10,color:"#333",letterSpacing:"0.06em" }}>RESEARCH-BACKED</span>
         </div>
       </header>
 
-      <main style={{ position:"relative",zIndex:1,maxWidth:1100,margin:"0 auto",padding:"40px 28px 80px" }}>
+      <main className="tf-main" style={{ position:"relative",zIndex:1,maxWidth:1100,margin:"0 auto",padding:"40px 28px 80px" }}>
 
         {/* ══ GENERATOR TAB ══════════════════════════════════════════ */}
         {activeTab === "generator" && (
@@ -179,7 +204,7 @@ export default function TweetForge() {
             </div>
 
             {/* Algorithm bar */}
-            <div style={{ display:"flex",gap:1,marginBottom:48,background:"#1A1C20" }}>
+            <div className="tf-alg-bar" style={{ display:"flex",gap:1,marginBottom:48,background:"#1A1C20" }}>
               {ALG_STATS.map(s => (
                 <div key={s.label} className="stat-box">
                   <div style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:30,color:"#F5A623",lineHeight:1 }}>{s.value}</div>
@@ -190,7 +215,7 @@ export default function TweetForge() {
             </div>
 
             {step !== "result" ? (
-              <div style={{ display:"grid",gridTemplateColumns:"1fr 330px",gap:24,alignItems:"start" }}>
+              <div className="tf-config-grid" style={{ display:"grid",gridTemplateColumns:"1fr 330px",gap:24,alignItems:"start" }}>
 
                 {/* LEFT */}
                 <div style={{ display:"flex",flexDirection:"column",gap:32 }}>
@@ -201,7 +226,7 @@ export default function TweetForge() {
                       <span style={{ fontFamily:"'DM Mono',monospace",fontSize:11,color:"#F5A623" }}>01</span>
                       <h2 style={{ fontSize:12,fontWeight:600,letterSpacing:"0.1em",textTransform:"uppercase",color:"#888" }}>Choose Your Framework</h2>
                     </div>
-                    <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:8 }}>
+                    <div className="tf-fw-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:8 }}>
                       {FRAMEWORKS.map(fw => (
                         <div key={fw.id} className={`fw-card ${framework===fw.id?"sel":""}`} style={{"--c":fw.color} as React.CSSProperties} onClick={() => setFramework(fw.id)}>
                           <div style={{ display:"flex",alignItems:"center",gap:8,marginBottom:5 }}>
@@ -239,7 +264,7 @@ export default function TweetForge() {
                       </div>
                       <div>
                         <label style={{ fontSize:11,color:"#444",letterSpacing:"0.08em",display:"block",marginBottom:7 }}>FORMAT</label>
-                        <div style={{ display:"flex",gap:8 }}>
+                        <div className="tf-fmt-row" style={{ display:"flex",gap:8 }}>
                           {FORMATS.map(f => (
                             <button key={f.id} className={`fmt-chip ${format===f.id?"sel":""}`} onClick={() => setFormat(f.id)}>
                               <div style={{ fontWeight:600,marginBottom:2,fontSize:12 }}>{f.label}</div>
@@ -268,7 +293,7 @@ export default function TweetForge() {
                 </div>
 
                 {/* RIGHT: sidebar */}
-                <div style={{ position:"sticky",top:24,display:"flex",flexDirection:"column",gap:12 }}>
+                <div className="tf-sidebar" style={{ position:"sticky",top:24,display:"flex",flexDirection:"column",gap:12 }}>
                   {selectedFw ? (
                     <div style={{ border:`1px solid ${selectedFw.color}22`,background:"#0D0E10",padding:22,animation:"fadeUp 0.25s ease" }}>
                       <div style={{ display:"flex",alignItems:"center",gap:10,marginBottom:18 }}>
@@ -313,14 +338,14 @@ export default function TweetForge() {
             ) : (
               /* RESULTS */
               <div ref={resultRef} style={{ animation:"fadeUp 0.35s ease" }}>
-                <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:28 }}>
+                <div className="tf-result-header" style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:28 }}>
                   <div>
                     <div style={{ fontFamily:"'DM Mono',monospace",fontSize:11,color:"#F5A623",letterSpacing:"0.1em",marginBottom:5,display:"flex",alignItems:"center",gap:6 }}>
                       <span style={{ color: selectedFw?.color }}>{selectedFw && ICON_MAP[selectedFw.emoji]}</span> {selectedFw?.name} · {niche}
                     </div>
                     <h2 style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:34,letterSpacing:"0.05em" }}>{tweets.length} TWEETS GENERATED</h2>
                   </div>
-                  <div style={{ display:"flex",gap:10 }}>
+                  <div className="tf-result-btns" style={{ display:"flex",gap:10 }}>
                     <button className="btn-ghost" onClick={generateTweets}><RefreshCw size={14} /> Regenerate</button>
                     <button className="btn-main" onClick={reset} style={{ display:"inline-flex",alignItems:"center",gap:6 }}><ArrowLeft size={14} /> New Tweet</button>
                   </div>
@@ -376,7 +401,7 @@ export default function TweetForge() {
 
                 <div style={{ marginTop:28,border:"1px solid #1A1C20",background:"#0D0E10",padding:22 }}>
                   <div style={{ fontFamily:"'DM Mono',monospace",fontSize:11,color:"#F5A623",letterSpacing:"0.1em",marginBottom:14 }}>AFTER YOU POST — DO THIS</div>
-                  <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:12 }}>
+                  <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:12 }} className="tf-after-grid">
                     {[
                       { time:"0–5 min", action:"Engage with 5 accounts in your niche right before posting to warm up the algorithm." },
                       { time:"0–30 min", action:"Reply to every comment immediately. Replying to your own tweet adds massive visibility." },
@@ -415,7 +440,7 @@ export default function TweetForge() {
             <section style={{ marginBottom:44 }}>
               <h2 style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:26,letterSpacing:"0.05em",marginBottom:3,color:"#F5A623" }}>THE ALGORITHM — DECODED</h2>
               <div style={{ width:36,height:2,background:"#F5A623",marginBottom:20 }} />
-              <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:12 }}>
+              <div className="tf-playbook-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:12 }}>
                 {[
                   { title:"Retweet = 20 Likes", detail:"X's open-sourced code confirmed: one retweet is worth 20 likes algorithmically. Design every tweet to be shareable first." },
                   { title:"First 2 Hours = Everything", detail:"The algorithm runs a micro-test on your content. Strong early engagement gets it pushed to For You. Weak early = it dies." },
@@ -461,7 +486,7 @@ export default function TweetForge() {
             <section>
               <h2 style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:26,letterSpacing:"0.05em",marginBottom:3,color:"#F5A623" }}>OPTIMAL POSTING SCHEDULE</h2>
               <div style={{ width:36,height:2,background:"#F5A623",marginBottom:20 }} />
-              <div style={{ display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:6,marginBottom:20 }}>
+              <div className="tf-schedule-grid" style={{ display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:6,marginBottom:20 }}>
                 {["MON","TUE","WED","THU","FRI","SAT","SUN"].map((day,i) => {
                   const peak=[1,2,3].includes(i), good=[0,4].includes(i);
                   return (
@@ -472,7 +497,7 @@ export default function TweetForge() {
                   );
                 })}
               </div>
-              <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10 }}>
+              <div className="tf-time-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10 }}>
                 {[{time:"9AM–12PM",note:"Algorithm rewards early velocity. Maximum audience online."},{time:"1PM–3PM",note:"Lunch browsing peak. Less competitive than morning."},{time:"7PM–9PM",note:"Evening engagement. Strong for consumer-focused niches."}].map((t,i) => (
                   <div key={i} className="info-card">
                     <div style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:26,color:i===0?"#F5A623":"#F0EDE8",marginBottom:6 }}>{t.time}</div>
@@ -496,7 +521,7 @@ export default function TweetForge() {
             <section style={{ marginBottom:44 }}>
               <h2 style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:26,letterSpacing:"0.05em",marginBottom:3,color:"#F5A623" }}>WHAT CREATORS ACTUALLY EARN</h2>
               <div style={{ width:36,height:2,background:"#F5A623",marginBottom:20 }} />
-              <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:1,background:"#1A1C20" }}>
+              <div className="tf-earn-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:1,background:"#1A1C20" }}>
                 {[
                   { tier:"Small Creator",followers:"1K–10K",monthly:"$10–$100/mo",focus:"Tips + Affiliate links. Start building the habit now. Monetize as you grow." },
                   { tier:"Mid-Tier",followers:"10K–100K",monthly:"$300–$2,000/mo",focus:"Brand deals (~$100/10K impressions), Subscriptions, Affiliate + Rev Share." },
@@ -515,7 +540,7 @@ export default function TweetForge() {
             <section style={{ marginBottom:44 }}>
               <h2 style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:26,letterSpacing:"0.05em",marginBottom:3,color:"#F5A623" }}>AD REVENUE SHARING — REQUIREMENTS</h2>
               <div style={{ width:36,height:2,background:"#F5A623",marginBottom:20 }} />
-              <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:16 }}>
+              <div className="tf-req-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:16 }}>
                 {[
                   { req:"X Premium Subscription", detail:"Must be on Premium or Premium+ plan. Basic plan doesn't qualify." },
                   { req:"500+ Verified Followers", detail:"Followers with blue/gold badges. Premium users count as verified." },
@@ -548,17 +573,17 @@ export default function TweetForge() {
                   { rank:4,stream:"Creator Subscriptions",when:"Consistent content + clean account",potential:"$3–$9/mo per subscriber",note:"Most predictable income. 800 subs at $5 = $4K/month recurring." },
                   { rank:5,stream:"Ad Revenue Sharing",when:"5M impressions / 3 months",potential:"~$85 / 1M impressions",note:"Baseline passive income. Hard to reach alone but compounds over time." },
                 ].map(s => (
-                  <div key={s.rank} style={{ display:"grid",gridTemplateColumns:"36px 1fr 150px 160px",gap:16,border:"1px solid #1A1C20",background:"#0D0E10",padding:"16px 20px",alignItems:"center" }}>
+                  <div key={s.rank} className="tf-rev-row" style={{ display:"grid",gridTemplateColumns:"36px 1fr 150px 160px",gap:16,border:"1px solid #1A1C20",background:"#0D0E10",padding:"16px 20px",alignItems:"center" }}>
                     <div style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:30,color:"#1A1C20" }}>{s.rank}</div>
                     <div>
                       <div style={{ fontWeight:600,fontSize:13,color:"#F0EDE8",marginBottom:4 }}>{s.stream}</div>
                       <div style={{ fontSize:12,color:"#444",lineHeight:1.5 }}>{s.note}</div>
                     </div>
-                    <div>
+                    <div className="tf-rev-meta-item">
                       <div style={{ fontSize:10,color:"#2a2d34",letterSpacing:"0.06em",marginBottom:3 }}>WHEN</div>
                       <div style={{ fontSize:11,color:"#666" }}>{s.when}</div>
                     </div>
-                    <div>
+                    <div className="tf-rev-meta-item">
                       <div style={{ fontSize:10,color:"#2a2d34",letterSpacing:"0.06em",marginBottom:3 }}>POTENTIAL</div>
                       <div style={{ fontSize:12,color:"#F5A623",fontWeight:600 }}>{s.potential}</div>
                     </div>
@@ -570,7 +595,7 @@ export default function TweetForge() {
         )}
       </main>
 
-      <footer style={{ position:"relative",zIndex:1,borderTop:"1px solid #1A1C20",padding:"14px 28px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(8,9,10,0.8)" }}>
+      <footer className="tf-footer" style={{ position:"relative",zIndex:1,borderTop:"1px solid #1A1C20",padding:"14px 28px",display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(8,9,10,0.8)" }}>
         <span style={{ fontFamily:"'DM Mono',monospace",fontSize:10,color:"#1E2025" }}>TWEETFORGE — BUILT ON X OPEN-SOURCE ALGORITHM DATA + VERIFIED CREATOR RESEARCH</span>
         <span style={{ fontFamily:"'DM Mono',monospace",fontSize:10,color:"#1E2025" }}>2026</span>
       </footer>
