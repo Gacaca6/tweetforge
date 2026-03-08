@@ -264,7 +264,7 @@ export default function TweetForge() {
                       </div>
                       <div>
                         <label style={{ fontSize:11,color:"#444",letterSpacing:"0.08em",display:"block",marginBottom:7 }}>FORMAT</label>
-                        <div style={{ display:"flex",gap:8 }}>
+                        <div className="tf-fmt-row" style={{ display:"flex",gap:8 }}>
                           {FORMATS.map(f => (
                             <button key={f.id} className={`fmt-chip ${format===f.id?"sel":""}`} onClick={() => setFormat(f.id)}>
                               <div style={{ fontWeight:600,marginBottom:2,fontSize:12 }}>{f.label}</div>
