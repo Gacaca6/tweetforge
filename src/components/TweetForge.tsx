@@ -573,17 +573,17 @@ export default function TweetForge() {
                   { rank:4,stream:"Creator Subscriptions",when:"Consistent content + clean account",potential:"$3–$9/mo per subscriber",note:"Most predictable income. 800 subs at $5 = $4K/month recurring." },
                   { rank:5,stream:"Ad Revenue Sharing",when:"5M impressions / 3 months",potential:"~$85 / 1M impressions",note:"Baseline passive income. Hard to reach alone but compounds over time." },
                 ].map(s => (
-                  <div key={s.rank} style={{ display:"grid",gridTemplateColumns:"36px 1fr 150px 160px",gap:16,border:"1px solid #1A1C20",background:"#0D0E10",padding:"16px 20px",alignItems:"center" }}>
+                  <div key={s.rank} className="tf-rev-row" style={{ display:"grid",gridTemplateColumns:"36px 1fr 150px 160px",gap:16,border:"1px solid #1A1C20",background:"#0D0E10",padding:"16px 20px",alignItems:"center" }}>
                     <div style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:30,color:"#1A1C20" }}>{s.rank}</div>
                     <div>
                       <div style={{ fontWeight:600,fontSize:13,color:"#F0EDE8",marginBottom:4 }}>{s.stream}</div>
                       <div style={{ fontSize:12,color:"#444",lineHeight:1.5 }}>{s.note}</div>
                     </div>
-                    <div>
+                    <div className="tf-rev-meta-item">
                       <div style={{ fontSize:10,color:"#2a2d34",letterSpacing:"0.06em",marginBottom:3 }}>WHEN</div>
                       <div style={{ fontSize:11,color:"#666" }}>{s.when}</div>
                     </div>
-                    <div>
+                    <div className="tf-rev-meta-item">
                       <div style={{ fontSize:10,color:"#2a2d34",letterSpacing:"0.06em",marginBottom:3 }}>POTENTIAL</div>
                       <div style={{ fontSize:12,color:"#F5A623",fontWeight:600 }}>{s.potential}</div>
                     </div>
