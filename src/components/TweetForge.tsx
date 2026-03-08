@@ -540,7 +540,7 @@ export default function TweetForge() {
             <section style={{ marginBottom:44 }}>
               <h2 style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:26,letterSpacing:"0.05em",marginBottom:3,color:"#F5A623" }}>AD REVENUE SHARING — REQUIREMENTS</h2>
               <div style={{ width:36,height:2,background:"#F5A623",marginBottom:20 }} />
-              <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:16 }}>
+              <div className="tf-req-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:16 }}>
                 {[
                   { req:"X Premium Subscription", detail:"Must be on Premium or Premium+ plan. Basic plan doesn't qualify." },
                   { req:"500+ Verified Followers", detail:"Followers with blue/gold badges. Premium users count as verified." },
