@@ -486,7 +486,7 @@ export default function TweetForge() {
             <section>
               <h2 style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:26,letterSpacing:"0.05em",marginBottom:3,color:"#F5A623" }}>OPTIMAL POSTING SCHEDULE</h2>
               <div style={{ width:36,height:2,background:"#F5A623",marginBottom:20 }} />
-              <div style={{ display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:6,marginBottom:20 }}>
+              <div className="tf-schedule-grid" style={{ display:"grid",gridTemplateColumns:"repeat(7,1fr)",gap:6,marginBottom:20 }}>
                 {["MON","TUE","WED","THU","FRI","SAT","SUN"].map((day,i) => {
                   const peak=[1,2,3].includes(i), good=[0,4].includes(i);
                   return (
