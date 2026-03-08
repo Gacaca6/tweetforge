@@ -401,7 +401,7 @@ export default function TweetForge() {
 
                 <div style={{ marginTop:28,border:"1px solid #1A1C20",background:"#0D0E10",padding:22 }}>
                   <div style={{ fontFamily:"'DM Mono',monospace",fontSize:11,color:"#F5A623",letterSpacing:"0.1em",marginBottom:14 }}>AFTER YOU POST — DO THIS</div>
-                  <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:12 }}>
+                  <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:12 }} className="tf-after-grid">
                     {[
                       { time:"0–5 min", action:"Engage with 5 accounts in your niche right before posting to warm up the algorithm." },
                       { time:"0–30 min", action:"Reply to every comment immediately. Replying to your own tweet adds massive visibility." },
