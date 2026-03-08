@@ -184,7 +184,7 @@ export default function TweetForge() {
         </div>
       </header>
 
-      <main style={{ position:"relative",zIndex:1,maxWidth:1100,margin:"0 auto",padding:"40px 28px 80px" }}>
+      <main className="tf-main" style={{ position:"relative",zIndex:1,maxWidth:1100,margin:"0 auto",padding:"40px 28px 80px" }}>
 
         {/* ══ GENERATOR TAB ══════════════════════════════════════════ */}
         {activeTab === "generator" && (
