@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
 import { Zap, Flame, BookOpen, BarChart3, ListOrdered, Anchor, HelpCircle, AlertTriangle, ArrowLeft, RefreshCw, ChevronRight, Check, Copy, ArrowRight } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 const ICON_MAP: Record<string, React.ReactNode> = {
   "⚡": <Zap size={15} />,
