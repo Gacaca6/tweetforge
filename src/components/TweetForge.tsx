@@ -521,7 +521,7 @@ export default function TweetForge() {
             <section style={{ marginBottom:44 }}>
               <h2 style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:26,letterSpacing:"0.05em",marginBottom:3,color:"#F5A623" }}>WHAT CREATORS ACTUALLY EARN</h2>
               <div style={{ width:36,height:2,background:"#F5A623",marginBottom:20 }} />
-              <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:1,background:"#1A1C20" }}>
+              <div className="tf-earn-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:1,background:"#1A1C20" }}>
                 {[
                   { tier:"Small Creator",followers:"1K–10K",monthly:"$10–$100/mo",focus:"Tips + Affiliate links. Start building the habit now. Monetize as you grow." },
                   { tier:"Mid-Tier",followers:"10K–100K",monthly:"$300–$2,000/mo",focus:"Brand deals (~$100/10K impressions), Subscriptions, Affiliate + Rev Share." },
