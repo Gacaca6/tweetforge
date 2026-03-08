@@ -171,7 +171,7 @@ export default function TweetForge() {
           <span style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:22,letterSpacing:"0.08em" }}>TWEETFORGE</span>
           <span style={{ background:"#111",color:"#444",padding:"2px 8px",fontFamily:"'DM Mono',monospace",fontSize:10,letterSpacing:"0.1em" }}>BETA</span>
         </div>
-        <div style={{ display:"flex",gap:0 }}>
+        <div className="tf-header-tabs" style={{ display:"flex",gap:0 }}>
           {["generator","playbook","monetize"].map(t => (
             <button key={t} className={`tab-btn ${activeTab===t?"active":""}`} onClick={() => setActiveTab(t)}>
               {t.charAt(0).toUpperCase()+t.slice(1)}
