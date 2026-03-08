@@ -293,7 +293,7 @@ export default function TweetForge() {
                 </div>
 
                 {/* RIGHT: sidebar */}
-                <div style={{ position:"sticky",top:24,display:"flex",flexDirection:"column",gap:12 }}>
+                <div className="tf-sidebar" style={{ position:"sticky",top:24,display:"flex",flexDirection:"column",gap:12 }}>
                   {selectedFw ? (
                     <div style={{ border:`1px solid ${selectedFw.color}22`,background:"#0D0E10",padding:22,animation:"fadeUp 0.25s ease" }}>
                       <div style={{ display:"flex",alignItems:"center",gap:10,marginBottom:18 }}>
