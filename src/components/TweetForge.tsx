@@ -338,7 +338,7 @@ export default function TweetForge() {
             ) : (
               /* RESULTS */
               <div ref={resultRef} style={{ animation:"fadeUp 0.35s ease" }}>
-                <div style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:28 }}>
+                <div className="tf-result-header" style={{ display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:28 }}>
                   <div>
                     <div style={{ fontFamily:"'DM Mono',monospace",fontSize:11,color:"#F5A623",letterSpacing:"0.1em",marginBottom:5,display:"flex",alignItems:"center",gap:6 }}>
                       <span style={{ color: selectedFw?.color }}>{selectedFw && ICON_MAP[selectedFw.emoji]}</span> {selectedFw?.name} · {niche}
