@@ -345,7 +345,7 @@ export default function TweetForge() {
                     </div>
                     <h2 style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:34,letterSpacing:"0.05em" }}>{tweets.length} TWEETS GENERATED</h2>
                   </div>
-                  <div style={{ display:"flex",gap:10 }}>
+                  <div className="tf-result-btns" style={{ display:"flex",gap:10 }}>
                     <button className="btn-ghost" onClick={generateTweets}><RefreshCw size={14} /> Regenerate</button>
                     <button className="btn-main" onClick={reset} style={{ display:"inline-flex",alignItems:"center",gap:6 }}><ArrowLeft size={14} /> New Tweet</button>
                   </div>
