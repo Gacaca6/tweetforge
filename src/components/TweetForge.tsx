@@ -178,7 +178,7 @@ export default function TweetForge() {
             </button>
           ))}
         </div>
-        <div style={{ display:"flex",alignItems:"center",gap:8 }}>
+        <div className="tf-header-right" style={{ display:"flex",alignItems:"center",gap:8 }}>
           <div style={{ width:6,height:6,borderRadius:"50%",background:"#2ECC71",animation:"pulse 2s ease infinite" }} />
           <span style={{ fontFamily:"'DM Mono',monospace",fontSize:10,color:"#333",letterSpacing:"0.06em" }}>RESEARCH-BACKED</span>
         </div>
