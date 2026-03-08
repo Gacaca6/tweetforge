@@ -204,7 +204,7 @@ export default function TweetForge() {
             </div>
 
             {/* Algorithm bar */}
-            <div style={{ display:"flex",gap:1,marginBottom:48,background:"#1A1C20" }}>
+            <div className="tf-alg-bar" style={{ display:"flex",gap:1,marginBottom:48,background:"#1A1C20" }}>
               {ALG_STATS.map(s => (
                 <div key={s.label} className="stat-box">
                   <div style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:30,color:"#F5A623",lineHeight:1 }}>{s.value}</div>
