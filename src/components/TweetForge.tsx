@@ -497,7 +497,7 @@ export default function TweetForge() {
                   );
                 })}
               </div>
-              <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10 }}>
+              <div className="tf-time-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10 }}>
                 {[{time:"9AM–12PM",note:"Algorithm rewards early velocity. Maximum audience online."},{time:"1PM–3PM",note:"Lunch browsing peak. Less competitive than morning."},{time:"7PM–9PM",note:"Evening engagement. Strong for consumer-focused niches."}].map((t,i) => (
                   <div key={i} className="info-card">
                     <div style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:26,color:i===0?"#F5A623":"#F0EDE8",marginBottom:6 }}>{t.time}</div>
