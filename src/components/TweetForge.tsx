@@ -134,6 +134,31 @@ export default function TweetForge() {
         .info-card{border:1px solid #1A1C20;background:#0D0E10;padding:20px}
         .grid-bg{position:fixed;inset:0;background-image:linear-gradient(#1A1C2010 1px,transparent 1px),linear-gradient(90deg,#1A1C2010 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
         .glow{position:fixed;top:-200px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(245,166,35,0.05) 0%,transparent 70%);pointer-events:none;z-index:0}
+        @media(max-width:768px){
+          .tf-header{flex-direction:column;height:auto!important;padding:10px 14px!important;gap:8px}
+          .tf-header-left{justify-content:center}
+          .tf-header-tabs{justify-content:center;width:100%}
+          .tf-header-right{display:none}
+          .tf-main{padding:20px 14px 60px!important}
+          .tf-alg-bar{flex-direction:row;flex-wrap:wrap}
+          .tf-alg-bar .stat-box{min-width:45%;flex:1 1 45%}
+          .tf-config-grid{grid-template-columns:1fr!important}
+          .tf-fw-grid{grid-template-columns:1fr!important}
+          .tf-fmt-row{flex-direction:column!important}
+          .tf-result-header{flex-direction:column!important;gap:14px!important;align-items:flex-start!important}
+          .tf-result-btns{width:100%}
+          .tf-result-btns .btn-main,.tf-result-btns .btn-ghost{flex:1;justify-content:center}
+          .tf-after-grid{grid-template-columns:1fr!important}
+          .tf-playbook-grid{grid-template-columns:1fr!important}
+          .tf-schedule-grid{grid-template-columns:repeat(4,1fr)!important}
+          .tf-time-grid{grid-template-columns:1fr!important}
+          .tf-earn-grid{grid-template-columns:1fr!important}
+          .tf-req-grid{grid-template-columns:1fr!important}
+          .tf-rev-row{grid-template-columns:36px 1fr!important;grid-template-rows:auto auto}
+          .tf-rev-meta{display:flex;gap:20px;grid-column:1/-1;padding-top:6px}
+          .tf-sidebar{position:static!important}
+          .tf-footer{flex-direction:column;gap:6px;text-align:center;padding:14px!important}
+        }
       `}</style>
 
       <div className="grid-bg" />
