@@ -215,7 +215,7 @@ export default function TweetForge() {
             </div>
 
             {step !== "result" ? (
-              <div style={{ display:"grid",gridTemplateColumns:"1fr 330px",gap:24,alignItems:"start" }}>
+              <div className="tf-config-grid" style={{ display:"grid",gridTemplateColumns:"1fr 330px",gap:24,alignItems:"start" }}>
 
                 {/* LEFT */}
                 <div style={{ display:"flex",flexDirection:"column",gap:32 }}>
