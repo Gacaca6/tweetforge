@@ -440,7 +440,7 @@ export default function TweetForge() {
             <section style={{ marginBottom:44 }}>
               <h2 style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:26,letterSpacing:"0.05em",marginBottom:3,color:"#F5A623" }}>THE ALGORITHM — DECODED</h2>
               <div style={{ width:36,height:2,background:"#F5A623",marginBottom:20 }} />
-              <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:12 }}>
+              <div className="tf-playbook-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:12 }}>
                 {[
                   { title:"Retweet = 20 Likes", detail:"X's open-sourced code confirmed: one retweet is worth 20 likes algorithmically. Design every tweet to be shareable first." },
                   { title:"First 2 Hours = Everything", detail:"The algorithm runs a micro-test on your content. Strong early engagement gets it pushed to For You. Weak early = it dies." },
