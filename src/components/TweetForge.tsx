@@ -226,7 +226,7 @@ export default function TweetForge() {
                       <span style={{ fontFamily:"'DM Mono',monospace",fontSize:11,color:"#F5A623" }}>01</span>
                       <h2 style={{ fontSize:12,fontWeight:600,letterSpacing:"0.1em",textTransform:"uppercase",color:"#888" }}>Choose Your Framework</h2>
                     </div>
-                    <div style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:8 }}>
+                    <div className="tf-fw-grid" style={{ display:"grid",gridTemplateColumns:"1fr 1fr",gap:8 }}>
                       {FRAMEWORKS.map(fw => (
                         <div key={fw.id} className={`fw-card ${framework===fw.id?"sel":""}`} style={{"--c":fw.color} as React.CSSProperties} onClick={() => setFramework(fw.id)}>
                           <div style={{ display:"flex",alignItems:"center",gap:8,marginBottom:5 }}>
