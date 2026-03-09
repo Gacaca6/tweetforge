@@ -165,7 +165,7 @@ export default function TweetForge() {
       <div className="glow" />
 
       {/* HEADER */}
-      <header className="tf-header" style={{ position:"relative",zIndex:10,borderBottom:"1px solid #1A1C20",background:"rgba(8,9,10,0.85)",backdropFilter:"blur(12px)",padding:"0 28px",display:"flex",alignItems:"center",justifyContent:"space-between",height:56 }}>
+      <header className="tf-header" style={{ position:"relative",zIndex:10,borderBottom:"1px solid #1A1C20",background:"rgba(8,9,10,0.85)",backdropFilter:"blur(12px)",padding:"env(safe-area-inset-top, 0px) 28px 0 28px",display:"flex",alignItems:"center",justifyContent:"space-between",minHeight:56 }}>
         <div className="tf-header-left" style={{ display:"flex",alignItems:"center",gap:12 }}>
           <div style={{ width:30,height:30,background:"#F5A623",display:"flex",alignItems:"center",justifyContent:"center",fontSize:15,fontWeight:900,color:"#08090A",fontFamily:"serif" }}>𝕏</div>
           <span style={{ fontFamily:"'Bebas Neue',sans-serif",fontSize:22,letterSpacing:"0.08em" }}>TWEETFORGE</span>
